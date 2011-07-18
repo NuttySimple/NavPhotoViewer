@@ -23,6 +23,11 @@
 		3DBB89DB13D1512600E8938C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DBB89D913D1512600E8938C /* InfoPlist.strings */; };
 		3DBB89DE13D1512600E8938C /* NavPhotoViewerTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 3DBB89DD13D1512600E8938C /* NavPhotoViewerTests.h */; };
 		3DBB89E013D1512600E8938C /* NavPhotoViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBB89DF13D1512600E8938C /* NavPhotoViewerTests.m */; };
+		3DBB89EC13D1535300E8938C /* FullScreenPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBB89EA13D1535300E8938C /* FullScreenPhotoController.m */; };
+		3DBB89ED13D1535300E8938C /* FullScreenPhotoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DBB89EB13D1535300E8938C /* FullScreenPhotoController.xib */; };
+		3DBB89F113D157B300E8938C /* ThumbnailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBB89EF13D157B300E8938C /* ThumbnailController.m */; };
+		3DBB89F213D157B300E8938C /* ThumbnailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DBB89F013D157B300E8938C /* ThumbnailController.xib */; };
+		3DBB89F513D15B9000E8938C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBB89F413D15B9000E8938C /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,20 +46,27 @@
 		3DBB89B213D1512500E8938C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3DBB89B413D1512500E8938C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3DBB89B613D1512500E8938C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		3DBB89BA13D1512500E8938C /* NavPhotoViewer-Info.plist */ = {isa = PBXFileReference; path = "NavPhotoViewer-Info.plist"; sourceTree = "<group>"; };
+		3DBB89BA13D1512500E8938C /* NavPhotoViewer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NavPhotoViewer-Info.plist"; sourceTree = "<group>"; };
 		3DBB89BC13D1512500E8938C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3DBB89BE13D1512500E8938C /* NavPhotoViewer-Prefix.pch */ = {isa = PBXFileReference; path = "NavPhotoViewer-Prefix.pch"; sourceTree = "<group>"; };
+		3DBB89BE13D1512500E8938C /* NavPhotoViewer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NavPhotoViewer-Prefix.pch"; sourceTree = "<group>"; };
 		3DBB89BF13D1512500E8938C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3DBB89C113D1512500E8938C /* NavPhotoViewerAppDelegate.h */ = {isa = PBXFileReference; path = NavPhotoViewerAppDelegate.h; sourceTree = "<group>"; };
+		3DBB89C113D1512500E8938C /* NavPhotoViewerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavPhotoViewerAppDelegate.h; sourceTree = "<group>"; };
 		3DBB89C213D1512500E8938C /* NavPhotoViewerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavPhotoViewerAppDelegate.m; sourceTree = "<group>"; };
 		3DBB89C513D1512600E8938C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		3DBB89C813D1512600E8938C /* NavPhotoViewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NavPhotoViewer.xcdatamodel; sourceTree = "<group>"; };
 		3DBB89CF13D1512600E8938C /* NavPhotoViewerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavPhotoViewerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3DBB89D813D1512600E8938C /* NavPhotoViewerTests-Info.plist */ = {isa = PBXFileReference; path = "NavPhotoViewerTests-Info.plist"; sourceTree = "<group>"; };
+		3DBB89D813D1512600E8938C /* NavPhotoViewerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NavPhotoViewerTests-Info.plist"; sourceTree = "<group>"; };
 		3DBB89DA13D1512600E8938C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3DBB89DC13D1512600E8938C /* NavPhotoViewerTests-Prefix.pch */ = {isa = PBXFileReference; path = "NavPhotoViewerTests-Prefix.pch"; sourceTree = "<group>"; };
+		3DBB89DC13D1512600E8938C /* NavPhotoViewerTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NavPhotoViewerTests-Prefix.pch"; sourceTree = "<group>"; };
 		3DBB89DD13D1512600E8938C /* NavPhotoViewerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavPhotoViewerTests.h; sourceTree = "<group>"; };
 		3DBB89DF13D1512600E8938C /* NavPhotoViewerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavPhotoViewerTests.m; sourceTree = "<group>"; };
+		3DBB89E913D1535300E8938C /* FullScreenPhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenPhotoController.h; sourceTree = "<group>"; };
+		3DBB89EA13D1535300E8938C /* FullScreenPhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenPhotoController.m; sourceTree = "<group>"; };
+		3DBB89EB13D1535300E8938C /* FullScreenPhotoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FullScreenPhotoController.xib; sourceTree = "<group>"; };
+		3DBB89EE13D157B300E8938C /* ThumbnailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailController.h; sourceTree = "<group>"; };
+		3DBB89EF13D157B300E8938C /* ThumbnailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnailController.m; sourceTree = "<group>"; };
+		3DBB89F013D157B300E8938C /* ThumbnailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThumbnailController.xib; sourceTree = "<group>"; };
+		3DBB89F413D15B9000E8938C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DBB89F513D15B9000E8938C /* MobileCoreServices.framework in Frameworks */,
 				3DBB89B113D1512500E8938C /* UIKit.framework in Frameworks */,
 				3DBB89B313D1512500E8938C /* Foundation.framework in Frameworks */,
 				3DBB89B513D1512500E8938C /* CoreGraphics.framework in Frameworks */,
@@ -86,6 +99,7 @@
 		3DBB89A113D1512500E8938C = {
 			isa = PBXGroup;
 			children = (
+				3DBB89F413D15B9000E8938C /* MobileCoreServices.framework */,
 				3DBB89B813D1512500E8938C /* NavPhotoViewer */,
 				3DBB89D613D1512600E8938C /* NavPhotoViewerTests */,
 				3DBB89AF13D1512500E8938C /* Frameworks */,
@@ -121,6 +135,12 @@
 				3DBB89C413D1512600E8938C /* MainWindow.xib */,
 				3DBB89C713D1512600E8938C /* NavPhotoViewer.xcdatamodeld */,
 				3DBB89B913D1512500E8938C /* Supporting Files */,
+				3DBB89E913D1535300E8938C /* FullScreenPhotoController.h */,
+				3DBB89EA13D1535300E8938C /* FullScreenPhotoController.m */,
+				3DBB89EB13D1535300E8938C /* FullScreenPhotoController.xib */,
+				3DBB89EE13D157B300E8938C /* ThumbnailController.h */,
+				3DBB89EF13D157B300E8938C /* ThumbnailController.m */,
+				3DBB89F013D157B300E8938C /* ThumbnailController.xib */,
 			);
 			path = NavPhotoViewer;
 			sourceTree = "<group>";
@@ -225,6 +245,8 @@
 			files = (
 				3DBB89BD13D1512500E8938C /* InfoPlist.strings in Resources */,
 				3DBB89C613D1512600E8938C /* MainWindow.xib in Resources */,
+				3DBB89ED13D1535300E8938C /* FullScreenPhotoController.xib in Resources */,
+				3DBB89F213D157B300E8938C /* ThumbnailController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +285,8 @@
 				3DBB89C013D1512500E8938C /* main.m in Sources */,
 				3DBB89C313D1512500E8938C /* NavPhotoViewerAppDelegate.m in Sources */,
 				3DBB89C913D1512600E8938C /* NavPhotoViewer.xcdatamodeld in Sources */,
+				3DBB89EC13D1535300E8938C /* FullScreenPhotoController.m in Sources */,
+				3DBB89F113D157B300E8938C /* ThumbnailController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +348,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -338,7 +362,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};
@@ -353,6 +377,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NavPhotoViewer/NavPhotoViewer-Prefix.pch";
 				INFOPLIST_FILE = "NavPhotoViewer/NavPhotoViewer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -366,6 +391,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NavPhotoViewer/NavPhotoViewer-Prefix.pch";
 				INFOPLIST_FILE = "NavPhotoViewer/NavPhotoViewer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
