@@ -10,7 +10,10 @@
 
 
 @interface FullScreenPhotoController : UIViewController {
-    
+    UIImageView *imageView;
+    UILabel *caption;
 }
+@property (nonatomic, retain) IBOutlet UIImageView *imageView;
+@property (nonatomic, retain) IBOutlet UILabel *caption;
 
 @end

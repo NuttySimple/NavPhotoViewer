@@ -7,6 +7,7 @@
 //
 
 #import "ThumbnailController.h"
+#import "FullScreenPhotoController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 
 
@@ -18,8 +19,12 @@ static UIImage *shrinkImage(UIImage *original, CGSize size);
 @end
 
 @implementation ThumbnailController
+
+@synthesize fullScreenPhotoController;
 @synthesize imageView;
+@synthesize clearImageButton;
 @synthesize takePictureButton;
+@synthesize caption;
 @synthesize image;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,6 +38,7 @@ static UIImage *shrinkImage(UIImage *original, CGSize size);
 
 - (void)dealloc
 {
+    [fullScreenPhotoController release];
     [imageView release];
     [takePictureButton release];
     [image release];
@@ -64,6 +70,14 @@ static UIImage *shrinkImage(UIImage *original, CGSize size);
 
 - (void)viewDidLoad
 {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+    
+    self.title = @"#Thumbnail";
+    
+    imageView.hidden = YES;
+    caption.hidden = YES;
+    caption.text = @"Here be the caption, yarr!";
+    
     if (![UIImagePickerController isSourceTypeAvailable:
           UIImagePickerControllerSourceTypeCamera]) {
         takePictureButton.hidden = YES;
@@ -115,18 +129,21 @@ static UIImage *shrinkImage(UIImage *original, CGSize size);
     if (chosenImageSize.height > chosenImageSize.width) {
         // Create UIImage frame for image in portrait thumbnail
         imageView.frame = CGRectMake( imageView.frame.origin.x, imageView.frame.origin.y, kThumbnailPortraitWidth, kThumbnailPortraitHeight);
+        clearImageButton.frame = CGRectMake( imageView.frame.origin.x, imageView.frame.origin.y, kThumbnailPortraitWidth, kThumbnailPortraitHeight);
         newImageSize = CGSizeMake(kThumbnailPortraitWidth, ((chosenImageSize.height*kThumbnailPortraitWidth)/chosenImageSize.width));
         cropRect = CGRectMake((newImageSize.width - (kThumbnailPortraitWidth))/2, (newImageSize.height - (kThumbnailPortraitHeight))/2, kThumbnailPortraitWidth, kThumbnailPortraitHeight);
     }
     else if (chosenImageSize.height < chosenImageSize.width) {
         // Create UIImage frame for image in landscape thumbnail
         imageView.frame = CGRectMake( imageView.frame.origin.x, imageView.frame.origin.y, kThumbnailLandscapeWidth, kThumbnailLandscapeHeight);
+        clearImageButton.frame = CGRectMake( imageView.frame.origin.x, imageView.frame.origin.y, kThumbnailLandscapeWidth, kThumbnailLandscapeHeight);
         newImageSize = CGSizeMake(((chosenImageSize.width*kThumbnailLandscapeHeight)/chosenImageSize.height), kThumbnailLandscapeHeight);
         cropRect = CGRectMake((newImageSize.width - (kThumbnailLandscapeWidth))/2, (newImageSize.height - (kThumbnailLandscapeHeight))/2, kThumbnailLandscapeWidth, kThumbnailLandscapeHeight);
     }
     else {
         // Create UIImage frame for image in portrait thumbnail but maximize image scaling to fill height
         imageView.frame = CGRectMake( imageView.frame.origin.x, imageView.frame.origin.y, kThumbnailPortraitWidth, kThumbnailPortraitHeight);
+        clearImageButton.frame = CGRectMake( imageView.frame.origin.x, imageView.frame.origin.y, kThumbnailPortraitWidth, kThumbnailPortraitHeight);
         newImageSize = CGSizeMake(kThumbnailPortraitHeight, kThumbnailPortraitHeight);
         cropRect = CGRectMake((newImageSize.width - (kThumbnailPortraitWidth))/2, (newImageSize.height - (kThumbnailPortraitHeight))/2, kThumbnailPortraitWidth, kThumbnailPortraitHeight);        
     }
@@ -146,6 +163,8 @@ static UIImage *shrinkImage(UIImage *original, CGSize size);
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissModalViewControllerAnimated:YES];
 }
+
+
 
 #pragma mark -
 static inline double radians (double degrees) {
@@ -218,6 +237,7 @@ static UIImage *shrinkImage(UIImage *original, CGSize size) {
 - (void)updateDisplay {
     imageView.image = image;
     imageView.hidden = NO;
+    caption.hidden = NO;
 }
 
 - (void)getMediaFromSource:(UIImagePickerControllerSourceType)sourceType {
@@ -244,6 +264,18 @@ static UIImage *shrinkImage(UIImage *original, CGSize size) {
                               otherButtonTitles:nil];
         [alert show];
         [alert release];
+    }
+}
+
+
+- (IBAction)didSelectImage:(id)sender {
+    if (self.fullScreenPhotoController.view.superview == nil) {
+        if (self.fullScreenPhotoController == nil) {
+            FullScreenPhotoController *fullScreenController = [[FullScreenPhotoController alloc] initWithNibName:@"FullScreenPhotoController" bundle:nil];
+            self.fullScreenPhotoController = fullScreenController;
+            [fullScreenController release];
+        }
+        [self.navigationController pushViewController:fullScreenPhotoController animated:YES];
     }
 }
 
