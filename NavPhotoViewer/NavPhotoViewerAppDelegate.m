@@ -23,6 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
     [self.window addSubview:navController.view];
     [self.window makeKeyAndVisible];
     return YES;
@@ -67,10 +68,10 @@
 - (void)dealloc
 {
     [_window release];
-    [navController release];
     [__managedObjectContext release];
     [__managedObjectModel release];
     [__persistentStoreCoordinator release];
+    [navController release];
     [super dealloc];
 }
 

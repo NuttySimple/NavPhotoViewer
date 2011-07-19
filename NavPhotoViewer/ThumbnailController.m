@@ -51,6 +51,10 @@ static UIImage *shrinkImage(UIImage *original, CGSize size);
     [self getMediaFromSource:UIImagePickerControllerSourceTypeCamera];
 }
 
+- (void)shootPictureVoid:(id)sender {
+    [self getMediaFromSource:UIImagePickerControllerSourceTypeCamera];
+}
+
 
 - (IBAction)selectExistingPicture:(id)sender {
     [self getMediaFromSource:UIImagePickerControllerSourceTypePhotoLibrary];
@@ -66,7 +70,14 @@ static UIImage *shrinkImage(UIImage *original, CGSize size);
     }
     imageFrame = imageView.frame;
     
-    //[super viewDidLoad];
+    UIBarButtonItem *cameraButton = [[UIBarButtonItem alloc]
+                                     initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
+                                     target:self
+                                     action:@selector(shootPictureVoid:)];
+    self.navigationItem.rightBarButtonItem = cameraButton;
+    [cameraButton release];
+    
+    [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
 
