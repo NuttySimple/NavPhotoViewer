@@ -69,9 +69,7 @@ static UIImage *shrinkImage(UIImage *original, CGSize size);
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
-{
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
-    
+{    
     self.title = @"#Thumbnail";
     
     imageView.hidden = YES;
@@ -95,7 +93,13 @@ static UIImage *shrinkImage(UIImage *original, CGSize size);
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
+    self.navigationController.navigationBar.translucent = NO;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [super viewDidAppear:animated];
     [self updateDisplay];
 }
@@ -272,6 +276,8 @@ static UIImage *shrinkImage(UIImage *original, CGSize size) {
     if (self.fullScreenPhotoController.view.superview == nil) {
         if (self.fullScreenPhotoController == nil) {
             FullScreenPhotoController *fullScreenController = [[FullScreenPhotoController alloc] initWithNibName:@"FullScreenPhotoController" bundle:nil];
+            fullScreenController.image = image;
+            fullScreenController.caption.text = caption.text;
             self.fullScreenPhotoController = fullScreenController;
             [fullScreenController release];
         }
